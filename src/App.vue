@@ -1,31 +1,39 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <nav-bar bgColor="#000" textColor="#fff" height="59px">
+        <div slot="left">
+          <div class="nav-item">
+            <router-link to='/'>主页</router-link>
+            <router-link to='/tools'>工具</router-link>
+            <router-link to='/games'>游戏</router-link>
+          </div>
+        </div>
+    </nav-bar>
     <router-view/>
   </div>
 </template>
-
+<script>
+import NavBar from 'components/navbar/NavBar'
+export default {
+  name: 'App',
+  components: {
+    NavBar
+  }
+}
+</script>
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.nav-item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 18px;
 }
-#nav {
-  padding: 30px;
+.nav-item a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.nav-item a:hover{
+  background-color: rgba(100,100,100, 0.2);
 }
 </style>
